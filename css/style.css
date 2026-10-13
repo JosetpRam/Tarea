@@ -1,0 +1,337 @@
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+:root {
+    /* Paleta terracota */
+    --primary: #B76545;
+    --primary-light: #F5E6D8;
+    --secondary: #D69A76;
+    --dark: #33231D;
+    --dark-alt: #241713;
+    --light: #FCF8F4;
+
+    --glass-bg: rgba(255, 248, 242, 0.08);
+    --glass-border: rgba(245, 230, 216, 0.15);
+
+    --shadow-soft: 0 20px 40px -10px rgba(90, 51, 34, 0.08);
+    --shadow-hover: 0 30px 60px -15px rgba(183, 101, 69, 0.22);
+
+    --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #5B463B;
+    background-color: var(--light);
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6,
+.title,
+.navbar-brand {
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: -0.02em;
+    color: var(--dark);
+}
+
+.position-relative {
+    position: relative;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.z-1 {
+    position: relative;
+    z-index: 1;
+}
+
+/* Barra de navegación */
+.custom-navbar {
+    background: rgba(252, 248, 244, 0.88) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(117, 67, 47, 0.10);
+    z-index: 100;
+    transition: var(--transition);
+}
+
+.navbar-brand-link {
+    color: var(--primary);
+    margin-right: 8px;
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.navbar-logo {
+    height: 48px;
+    width: auto;
+    max-height: 48px !important;
+    object-fit: contain;
+}
+
+.navbar-brand-name {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--dark);
+    letter-spacing: -0.02em;
+}
+
+.footer-logo {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+}
+
+/* Enlaces */
+.nav-link {
+    font-weight: 500;
+    color: #654D40 !important;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-link:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 8px;
+    left: 50%;
+    background-color: var(--primary);
+    transition: var(--transition);
+    transform: translateX(-50%);
+}
+
+.nav-link:hover {
+    color: var(--primary) !important;
+    background: transparent !important;
+}
+
+.nav-link:hover:after {
+    width: 60%;
+}
+
+/* Sección principal */
+.hero {
+    padding-top: 80px;
+}
+
+.hero-gradient {
+    background: linear-gradient(
+        rgba(51, 35, 29, 0.42),
+        rgba(51, 35, 29, 0.78)
+    ), url('../img/2026-03-19-may-summer-hair-app-hp-new-4-u-dry-shampoo-us-2835-artwork-only.avif')
+    no-repeat center center !important;
+
+    background-size: cover !important;
+    position: relative;
+}
+
+.text-highlight {
+    color: var(--primary-light);
+    font-weight: bold;
+}
+
+/* Botones */
+.button {
+    transition: var(--transition) !important;
+}
+
+.cta-button-main {
+    background-color: var(--primary) !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    box-shadow: 0 4px 6px -1px rgba(51, 35, 29, 0.15),
+                0 2px 4px -1px rgba(51, 35, 29, 0.08);
+}
+
+.cta-button-main:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(51, 35, 29, 0.18),
+                0 4px 6px -2px rgba(51, 35, 29, 0.10);
+    background-color: #954A32 !important;
+}
+
+.cta-button-outline {
+    background: rgba(255, 248, 242, 0.10) !important;
+    border: 1px solid rgba(255, 248, 242, 0.25) !important;
+    backdrop-filter: blur(5px);
+    color: #FFFFFF !important;
+}
+
+.cta-button-outline:hover {
+    background: rgba(245, 230, 216, 0.22) !important;
+    transform: translateY(-3px);
+}
+
+/* Tarjetas */
+.feature-card {
+    border-radius: 24px;
+    border: 1px solid rgba(117, 67, 47, 0.08);
+    background: #FFFFFF;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(245, 230, 216, 0.75) 100%
+    );
+
+    z-index: -1;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(183, 101, 69, 0.25);
+}
+
+.feature-card:hover::before {
+    opacity: 1;
+}
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    background-color: var(--primary);
+    color: #FFFFFF;
+    font-size: 1.5rem;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.1);
+    background-color: var(--secondary);
+    color: #FFFFFF;
+}
+
+/* Sección de llamada a la acción */
+.cta-section {
+    padding: 100px 0;
+    background-color: var(--dark) !important;
+}
+
+.mesh-gradient-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-image:
+        radial-gradient(
+            at 0% 0%,
+            rgba(183, 101, 69, 0.60) 0px,
+            transparent 50%
+        ),
+        radial-gradient(
+            at 100% 100%,
+            rgba(214, 154, 118, 0.45) 0px,
+            transparent 50%
+        );
+
+    z-index: 0;
+}
+
+/* Pie de página */
+.custom-footer {
+    background-color: var(--dark-alt) !important;
+    color: #E8CFC0;
+    padding: 80px 1.5rem 40px !important;
+}
+
+.footer-link {
+    color: #DCC2B1;
+    transition: var(--transition);
+    display: inline-block;
+    padding: 4px 0;
+}
+
+.footer-link:hover {
+    color: var(--primary-light);
+    transform: translateX(5px);
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(245, 230, 216, 0.08);
+    color: #FFFFFF;
+    margin-right: 10px;
+    transition: var(--transition);
+}
+
+.social-icons a:hover {
+    background: var(--primary);
+    transform: translateY(-3px);
+}
+
+.border-top-dark {
+    border-top: 1px solid rgba(245, 230, 216, 0.12);
+}
+
+/* Animaciones */
+.pre-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out,
+                transform 0.8s ease-out;
+}
+
+.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.column:nth-child(1) .feature-card {
+    transition-delay: 0.1s;
+}
+
+.column:nth-child(2) .feature-card {
+    transition-delay: 0.2s;
+}
+
+.column:nth-child(3) .feature-card {
+    transition-delay: 0.3s;
+}
